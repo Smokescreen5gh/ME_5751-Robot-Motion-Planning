@@ -137,25 +137,25 @@ class cost_map:
 			h, w = q.get() # Gets the coordinate points that is first in the queue and unpacks the tuple into h and w
 			d = self.distmap[h, w] # Starting value of the starting point of our distmap generation. It should be 0 since we are starting at an obstacle point
 
-		for dy , dx in neighbors:
-			ny = h + dy # neighbor height
-			nx = w + dx # neighbor weidth
+			for dy , dx in neighbors:
+				ny = h + dy # neighbor height
+				nx = w + dx # neighbor weidth
 
-			# we are now at coordinate ny, nx
+				# we are now at coordinate ny, nx
 
-			if ny < 0 or ny >= height: #ensure neighbor is not out of bounds in height (0 is top of the map and height is the utmost bottom of the map)
-				continue
-			if nx < 0 or nx >= width:  #ensure neighbor is not out of bounds in width
-				continue
+				if ny < 0 or ny >= height: #ensure neighbor is not out of bounds in height (0 is top of the map and height is the utmost bottom of the map)
+					continue
+				if nx < 0 or nx >= width:  #ensure neighbor is not out of bounds in width
+					continue
 
-			if self.distmap[ny ,nx] != -1: #if this coordinate is not -1 means if this point in the array is not explored
-				continue
+				if self.distmap[ny ,nx] != -1: #if this coordinate is not -1 means if this point in the array is not explored
+					continue
 
-			if int(self.map[ny, nx]) <= free_pix:  # if it isnt a free pixel, then continue and don't expand into it
-				continue
-			
-			self.distmap[ny, nx] = d + 1
-			q.put((ny,nx))
+				if int(self.map[ny, nx]) <= free_pix:  # if it isnt a free pixel, then continue and don't expand into it
+					continue
+				
+				self.distmap[ny, nx] = d + 1
+				q.put((ny,nx))
 
 		'''
 		------------------------------
