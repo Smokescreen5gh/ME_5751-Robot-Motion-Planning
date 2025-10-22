@@ -32,7 +32,7 @@ class cost_map:
 		self.save_costmap(file_path= 'New_Maps/Cost_Test_Map_3.txt')
 		self.save_distmap(file_path= 'New_Maps/Dist_Test_Map_3.txt')
 
-	#load occupancy grid into self.map
+	# load occupancy grid into self.map
 	#self.map is a numpy 2d array
 	#initialize self.costmap, a numpy 2d array, same as self.map
 	def load_map(self,map="Test_Map_3.png"):
