@@ -4,6 +4,7 @@ import math
 from PIL import Image, ImageTk
 from queue import Queue
 
+## Test if Git Hub works 
 class cost_map:
 	def __init__(self,graphics):
 		self.graphics = graphics
