@@ -35,7 +35,7 @@ class cost_map:
 			print ("no map loaded") #if fail to find the map png
 			return
 		
-		base_name = os.path.splittext(os.path.basename(map_file))[0]
+		base_name = os.path.splitext(os.path.basename(map_file))[0]
 		base_name = base_name.replace(" ", "_")
 
 		vis_map_path = f"Generated_Maps/{base_name}_vis.png"
