@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import math
+import os
 from PIL import Image, ImageTk
 from queue import Queue
 
@@ -19,19 +20,34 @@ class cost_map:
 		# self.scale shall be half of your image size, for example, if your map image is 500 x 500 pixel, set your self.scale = 250
 		# The default map size is 500 x 500 pixel. In case you want a smaller size for debugging, you can change the value of self.scale.
 		
+		'''
+		-----------
+		Select Map
+		-----------
+		'''
+
+		map_file = "User_Loaded_Maps/Test_Map_1.png"
+
 		try:
-			self.load_map(map = "Test_Map_3.png") #load map, put your own map here
+			self.load_map(map = map_file) #load map
 		except:
 			self.graphics.show_map_button.configure(state="disabled")
 			print ("no map loaded") #if fail to find the map png
 			return
 		
+		base_name = os.path.splittext(os.path.basename(map_file))[0]
+		base_name = base_name.replace(" ", "_")
+
+		vis_map_path = f"Generated_Maps/{base_name}_vis.png"
+		cost_map_path = f"Generated_Maps/{base_name}_Cost_Map.txt" 
+		dist_map_path = f"Generated_Maps/{base_name}_Dist_Map.txt"
+		
 		self.show_map()
 		self.compute_costmap()
 		self.get_vis_map()
-		self.save_vis_map(map = "New_Maps/Test_Map_3.png")
-		self.save_costmap(file_path= 'New_Maps/Cost_Test_Map_3.txt')
-		self.save_distmap(file_path= 'New_Maps/Dist_Test_Map_3.txt')
+		self.save_vis_map(map = vis_map_path)
+		self.save_costmap(file_path = cost_map_path)
+		self.save_distmap(file_path = dist_map_path)
 
 	# load occupancy grid into self.map
 	#self.map is a numpy 2d array
