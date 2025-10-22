@@ -4,7 +4,7 @@ import math
 from PIL import Image, ImageTk
 from queue import Queue
 
-## Test if Git Hub works 
+ 
 class cost_map:
 	def __init__(self,graphics):
 		self.graphics = graphics
@@ -112,7 +112,7 @@ class cost_map:
 		---------------------------------------
 
 		'''
-		from queue import Queue
+		
 		q = Queue() # Breadth Width Search Algo
 
 		# Find all the obstacles. Goes through every pixel through the 2 for loops
@@ -135,7 +135,6 @@ class cost_map:
 
 		while not q.empty():
 			h, w = q.get() # Gets the coordinate points that is first in the queue and unpacks the tuple into h and w
-
 			d = self.distmap[h, w] # Starting value of the starting point of our distmap generation. It should be 0 since we are starting at an obstacle point
 
 		for dy , dx in neighbors:
@@ -153,7 +152,7 @@ class cost_map:
 				continue
 
 			if int(self.map[ny, nx]) <= free_pix:  # if it isnt a free pixel, then continue and don't expand into it
-					continue
+				continue
 			
 			self.distmap[ny, nx] = d + 1
 			q.put((ny,nx))
