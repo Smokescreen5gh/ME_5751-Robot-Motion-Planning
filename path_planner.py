@@ -1,3 +1,4 @@
+#Lab 3 Branch
 import cv2
 import numpy as np
 import math
@@ -20,7 +21,7 @@ class path_planner:
 		self.map_width = self.costmap.map_width
 		self.map_height = self.costmap.map_height
 
-		self._init_path_img()
+		self._init_path_img()s
 		self.path = Path()
 
 	

@@ -64,8 +64,8 @@ class E160_graphics:
 		self.map = cost_map(self)
 		
 		# Un-comment the following two lines for lab 3 and lab 4
-		# self.path = path_planner(self)
-		# self.canvas.bind("<Button-3>", self.callback_right)
+		self.path = path_planner(self)
+		self.canvas.bind("<Button-3>", self.callback_right)
 		
 		# draw first robot
 
