@@ -26,7 +26,7 @@ class cost_map:
 		-----------
 		'''
 
-		map_file = "User_Loaded_Maps/Test_Map_1.png"
+		map_file = "User_Loaded_Maps/Test_Map_4.png"
 
 		try:
 			self.load_map(map = map_file) #load map

@@ -63,7 +63,7 @@ class E160_graphics:
 		
 		self.map = cost_map(self)
 		
-		# Un-comment the following two lines for lab 3 and lab 4
+		# Un-comment the following two lines for lab 3 and lab 4 hi
 		self.path = path_planner(self)
 		self.canvas.bind("<Button-3>", self.callback_right)
 		
@@ -212,6 +212,7 @@ class E160_graphics:
 
 
 	def callback_right(self, event):
+		print("DEBUG: Right-click detected in GUI")
 		desired_points = self.reverse_scale_points([float(event.x), float(event.y)], self.scale)
 		print("New clicked goal position", desired_points[0], desired_points[1])
 		self.path.set_goal(world_x = desired_points[0], world_y = desired_points[1], world_theta = .0)
